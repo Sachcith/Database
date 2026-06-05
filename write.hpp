@@ -1,6 +1,6 @@
 #ifndef write_H
 #define write_H
-#include "string.h"
+#include <string>
 #include "fstream"
 #include "record.hpp"
 #include <iostream>
