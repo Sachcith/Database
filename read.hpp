@@ -1,6 +1,6 @@
 #ifndef read_H
 #define read_H
-#include "string.h"
+#include <string>
 #include "fstream"
 #include "record.hpp"
 #include <iostream>
