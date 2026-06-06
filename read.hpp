@@ -4,6 +4,7 @@
 #include "fstream"
 #include "record.hpp"
 #include <iostream>
+#include <cstdint>
 
 class readString{
     public:
@@ -13,7 +14,7 @@ class readString{
 };
 
 std::string readString::read(std::ifstream& file){
-    std::size_t len;
+    uint32_t len;
     file.read(reinterpret_cast<char*>(&len),sizeof(len));
     std::cout<<len<<std::endl;
     std::string str(len,'\0');

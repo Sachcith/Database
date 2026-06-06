@@ -4,6 +4,7 @@
 #include "fstream"
 #include "record.hpp"
 #include <iostream>
+#include <cstdint>
 
 class writeString{
     public:
@@ -13,7 +14,7 @@ class writeString{
 };
 
 void writeString::write(std::ofstream& file,const std::string& str){
-    std::size_t len = str.size();
+    uint32_t len = static_cast<uint32_t>(str.size());
     std::cout<<len<<std::endl;
     file.write(reinterpret_cast<char*>(&len),sizeof(len));
     file.write(str.data(),len);
