@@ -3,6 +3,7 @@
 #include <string>
 #include "write.hpp"
 #include "read.hpp"
+#include <iostream>
 
 class Record{
     private:
@@ -23,6 +24,7 @@ class Record{
         bool readNextRecord(std::ifstream& file);
 
         void clear();
+        void disp();
 };
 
 const std::string Record::getKey(){
@@ -62,6 +64,13 @@ void Record::clear(){
 
     value = "";
     valueEmpty = true;
+}
+
+void Record::disp(){
+    std::cout<<"{"<<std::endl;
+    std::cout<<"    "<<"Key: "<<key<<std::endl;
+    std::cout<<"    "<<"Value: "<<value<<std::endl;
+    std::cout<<"}"<<std::endl<<std::endl;
 }
 
 

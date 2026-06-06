@@ -71,8 +71,7 @@ int main(){
     recordClass.setKey("Name");
     recordClass.setValue("Praaneesh V");
 
-    cout<<recordClass.getKey()<<endl;
-    cout<<recordClass.getValue()<<endl;
+    recordClass.disp();
 
     cout<<recordClass.writeRecord(writer)<<endl;
     
@@ -81,8 +80,7 @@ int main(){
     recordClass.setKey("Name");
     recordClass.setValue("Sachcith G N");
 
-    cout<<recordClass.getKey()<<endl;
-    cout<<recordClass.getValue()<<endl;
+    recordClass.disp();
 
     cout<<recordClass.writeRecord(writer)<<endl;
     cout<<"Write Complete!"<<endl;
@@ -91,13 +89,15 @@ int main(){
 
     recordClass.readNextRecord(reader);
 
-    cout<<recordClass.getKey()<<endl;
-    cout<<recordClass.getValue()<<endl;
+    recordClass.disp();
 
     recordClass.readNextRecord(reader);
 
-    cout<<recordClass.getKey()<<endl;
-    cout<<recordClass.getValue()<<endl;
+    recordClass.disp();
+
+    recordClass.readNextRecord(reader);
+
+    recordClass.disp();
 
     reader.close();
 
