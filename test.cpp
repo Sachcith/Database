@@ -3,6 +3,7 @@
 #include <fstream>
 #include "write.hpp"
 #include "read.hpp"
+#include "record.hpp"
 using namespace std;
 
 int main(){
@@ -31,10 +32,10 @@ int main(){
     // cout<<y<<endl;
 
     // vector<int>s;
-    // writeString<int> w;
+    // writeClass<int> w;
 
-
-    ofstream writer("data1.db",ios::binary);
+/*
+    ofstream writer("data1.db",ios::binary | ios::app);
     ifstream reader("data1.db",ios::binary);
 
     string key = "Key Thingy";
@@ -42,25 +43,63 @@ int main(){
     cout<<"Before write and read"<<endl;
     cout<<key<<endl<<value<<endl;
 
-    writeString writeClass;
+    writeClass writeString;
 
-    writeClass.write(writer,key);
-    writeClass.write(writer,value);
+    writeString.write(writer,key);
+    writeString.write(writer,value);
     
     writer.close();
 
     cout<<"After write thingy"<<endl;
 
-    readString readClass;
+    readClass readString;
 
-    auto key_thingy =  readClass.read(reader);
-    auto value_thingy = readClass.read(reader);
+    auto key_thingy =  readString.read(reader);
+    auto value_thingy = readString.read(reader);
 
     reader.close();
 
     cout<<"After Read thingy"<<endl;
     cout<<key_thingy<<endl<<value_thingy<<endl;
+*/
 
+    ofstream writer("data1.db",ios::binary);
+    ifstream reader("data1.db",ios::binary);
+
+    Record recordClass;
+
+    recordClass.setKey("Name");
+    recordClass.setValue("Praaneesh V");
+
+    cout<<recordClass.getKey()<<endl;
+    cout<<recordClass.getValue()<<endl;
+
+    cout<<recordClass.writeRecord(writer)<<endl;
+    
+    recordClass.clear();
+
+    recordClass.setKey("Name");
+    recordClass.setValue("Sachcith G N");
+
+    cout<<recordClass.getKey()<<endl;
+    cout<<recordClass.getValue()<<endl;
+
+    cout<<recordClass.writeRecord(writer)<<endl;
+    cout<<"Write Complete!"<<endl;
+
+    writer.close();
+
+    recordClass.readNextRecord(reader);
+
+    cout<<recordClass.getKey()<<endl;
+    cout<<recordClass.getValue()<<endl;
+
+    recordClass.readNextRecord(reader);
+
+    cout<<recordClass.getKey()<<endl;
+    cout<<recordClass.getValue()<<endl;
+
+    reader.close();
 
 
 }
