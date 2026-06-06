@@ -12,7 +12,9 @@ class readClass{
 };
 
 std::string readClass::read(std::ifstream& file){
-    uint32_t len;
+    if(file.peek()==EOF) return "EOF Thingy"; // Detects End Of File
+
+    uint32_t len = 0;
     file.read(reinterpret_cast<char*>(&len),sizeof(len));
     std::string str(len,'\0');
     file.read(str.data(),len);
